@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Time-Out History</title>
+</head>
+<body id="page-top">
+    <header class="masthead bg-secondary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0"><p></p></h1>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+  <div class="container">
+  
+    <h2 class="time-history-title">Admin Dashboard</h2>
+    <h3>Time-Out History</h3>
+    <table class="all-students-table">
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Time Out</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @time_out_records.each do |record| %>
+          <tr>
+            <td><%= record.student.name %></td>
+            <td><%= record.time_out.strftime('%Y-%m-%d %H:%M:%S') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+          <p></p>
+    <%= link_to 'Back', admins_dashboard_path, class: 'btn btn-warning' %>
+  </div>
+</body>
+</html>

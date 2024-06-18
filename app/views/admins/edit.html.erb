@@ -1,0 +1,109 @@
+<!-- app/views/students/edit.html.erb -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag 'style' %>
+  <title>Create New Student</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Freelancer - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/style.css" rel="stylesheet" />
+
+</head>
+<body id="page-top">
+    <header class="masthead bg-secondary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0"><p></p></h1>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+  <div class="container">
+    <h2>Edit Student</h2>
+
+    <%= form_for @student, url: admin_path(@student), method: :patch do |f| %>
+      <div class="form-group">
+        <%= f.label :LSN %>
+        <%= f.text_field :usn, class: 'form-control', readonly: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <%= f.label :age %>
+          <%= f.number_field :age, class: 'form-control' %>
+        </div>
+  
+        <div class="col-md-6 form-group">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: 'form-control' %>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <%= f.label :emergency_contact_name %>
+          <%= f.text_field :emergency_contact_name, class: 'form-control' %>
+        </div>
+  
+        <div class="col-md-6 form-group">
+          <%= f.label :emergency_contact_number %>
+          <%= f.number_field :emergency_contact_number, class: 'form-control' %>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <%= f.label :birthdate %>
+          <%= f.date_field :birthdate, class: 'form-control' %>
+        </div>
+  
+        <div class="col-md-6 form-group">
+          <%= f.label :contact_number %>
+          <%= f.number_field :contact_number, class: 'form-control' %>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <%= f.label :course %>
+          <%= f.select :course, ['BS Information Technology', 'BS Computer Science', 'BS Marketing Management', 'BS Financial Management'], prompt: 'Select course', class: 'form-control' %>
+        </div>
+  
+        <div class="col-md-6 form-group">
+          <%= f.label :year %>
+          <%= f.select :year, ['1st year', '2nd year', '3rd year', '4th year'], prompt: 'Select year level', class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Update', class: 'btn btn-primary' %>
+        <%= link_to 'Cancel', admins_all_students_path, class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

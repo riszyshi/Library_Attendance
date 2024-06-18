@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Freelancer - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+    <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0"><p></p></h1>
+                <p></p>
+                <p></p>
+                
+        
+        <!-- Contact Section-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Library Attendance</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row justify-content-center">
+    <h1 class="page-section-heading text-center text-uppercase text-secondary mb-0">Time In</h1>
+    <p></p>
+    <%= form_with(url: students_time_in_path, method: :post, html: { onsubmit: 'return validateForm()' }) do |form| %>
+      <div class="text-center page-section-heading text-center text-uppercase text-secondary mb-0">
+        <%= form.label :usn, 'LSN:' %>
+        <%= form.number_field :usn %>
+      </div>
+      <p></p>
+    
+      <div class="text-center page-section-heading text-center text-uppercase text-secondary mb-0">
+        <%= form.label :purpose, 'Purpose:' %>
+        <%= form.select :purpose, ['Study', 'Borrow Book', 'Chill', 'Rest', 'Print', 'Others'], prompt: 'Select a purpose' %>
+      </div>
+    
+      <div class="text-center page-section-heading text-center text-uppercase text-secondary mb-0">
+        <%= button_to 'Time In', students_time_in_path, method: :post, class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+
+  
+  <script>
+    function timeOut() {
+      // Implement the logic for the Time Out action here
+      alert('Time Out clicked! Implement the logic.');
+    }
+  </script>
+  <script>
+  function validateForm() {
+    var usnValue = document.getElementById('usn').value;
+    var purposeValue = document.getElementById('purpose').value;
+
+    if (usnValue.trim() === '' || purposeValue.trim() === '') {
+      alert('Please fill in all the required fields');
+      return false; // prevent form submission
+    }
+
+    // Call the function for successful input
+    onSuccessfulInput();
+
+    return true; // allow form submission
+  }
+
+  function onSuccessfulInput() {
+    alert(' Time In Successful!') ;
+    // You can add more code here to handle the successful input, such as redirecting to another page, etc.
+  }
+</script>
+
+
+  
+</body>
+</html>
